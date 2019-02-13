@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="author" content="Chloe">
+<!-- page title -->
+<title>Yo</title>
+<!-- favicon -->
+<link rel="shortcut icon" href="img/peach.png" type="image/ico">
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="css/Valerie.css">
+<!-- js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+
+
+                                                  <!-- cover section -->
+
+<div id="cover">
+
+<div id="play">
+
+<button id="music" type="button" title="Play/Pause" onclick="javascript:toggleSound();javascript:toggle()">
+<img src="img/music.png">
+</button>
+
+
+<audio id="audio"><source src="mp3/Table Scraps.mp3" type="audio/mpeg"></audio>   
+
+
+<img id="VS" src="img/VS.gif">
+
+</div>
+
+<div id="title"><p>Ev</p>el<p>yn</p></div> 
+
+<form id="search" method="get" action="https://google.com/search?q=">
+<input id="searchbox" name="q" title="Search Google" placeholder="探索">
+</form>
+  
+<div id="arrow"> 
+<a href="#next"><img src="img/arrow.png" title="Secrets?"></a>
+</div>      <!-- close arrow -->
+
+
+</div>	<!-- close cover -->
+
+				<!-- content -->
+
+<div id="next">
+
+		<!-- top row -->
+<a href="https://twitter.com" class="square">Twitter</a>
+
+<a href="https://www.youtube.com/feed/subscriptions" class="square">YouTube</a>
+
+<a href="https://www.twitch.tv/" class="square">Twitch</a>
+
+<a href="https://www.reddit.com/" class="square">Reddit</a>
+
+
+		<!-- mid row -->
+<a href="https://translate.google.com/" class="square">Translate</a>
+
+<a href="https://www.dropbox.com/" class="square">Dropbox</a>
+
+<a href="https://mail.google.com/mail/u/0/#inbox" class="square">Inbox</a>
+
+<a href="https://www.google.com/drive/" class="square">Drive</a>
+
+
+		<!-- third row -->
+<a href="https://www.amazon.com/" class="square">Amazon</a>
+
+<a href="http://www.last.fm" class="square">Last.fm</a> 
+
+<a href="https://www.netflix.com/browse" class="square">Netflix</a>
+
+<a href="https://thepiratebay.org/top" class="square">TPB</a>
+
+
+		<!-- last row -->
+<a href="https://boards.4channel.org/mu/" class="square">/mu/</a>
+
+<a href="https://boards.4channel.org/tv/" class="square">/tv/</a>
+
+<a href="https://boards.4channel.org/v/" class="square">/v/</a>
+
+<a href="https://boards.4channel.org/vg/" class="square">/vg/</a>
+
+
+</div>	<!-- close next -->
+
+						<!-- js -->
+
+              <!-- music -->
+
+<script>
+function toggleSound() {
+  var audioElem = document.getElementById('audio');
+  if (audioElem.paused)
+    audioElem.play();
+  else
+    audioElem.pause();
+}
+</script>
+
+          <!-- visualizer -->
+
+<script>
+
+document.getElementById('music').addEventListener('click', function () {
+    toggle(document.querySelectorAll('#VS'));
+});
+
+function toggle (elements, specifiedDisplay) {
+  var element, index;
+  elements = elements.length ? elements : [elements];
+  for (index = 0; index < elements.length; index++) {
+    element = elements[index];
+    if (isElementHidden(element)) {
+      element.style.display = '';
+      if (isElementHidden(element)) {
+        element.style.display = specifiedDisplay || 'block';
+      }
+    } else {
+      element.style.display = 'none';
+    }
+  }
+  function isElementHidden (element) {
+    return window.getComputedStyle(element, null).getPropertyValue('display') === 'none';
+  }
+}
+
+function nocontext(e) {
+var clickedTag = (e==null) ? event.srcElement.tagName : e.target.tagName;
+if (clickedTag == "IMG")
+return false;
+}
+document.oncontextmenu = nocontext;
+
+</script>
+
+                <!-- smooth scrolling -->
+<script> 
+$('a[href*="#"]:not([href="#"])').click(function() {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 800);
+      return false;
+    }
+  }
+});
+</script>
+
+</body>
+</html>
